@@ -48,14 +48,15 @@ const IndexPage = () => {
         </li>
       </ul>
       <div className="flex flex-wrap w-full justify-center">
-        {[1, 2, 3, 4].map(k => (
-          <img
-            alt=""
-            key={k}
-            className="xl:w-2/3"
-            src={`/menu-${lang}-${k}.jpg`}
-          />
-        ))}
+        {lang !== "take" &&
+          [1, 2, 3, 4].map(k => (
+            <img
+              alt=""
+              key={k}
+              className="xl:w-2/3"
+              src={`/menu-${lang}-${k}.jpg`}
+            />
+          ))}
 
         {lang !== "take" && <img alt="" src="/allergens.jpg" />}
         {lang === "take" &&
