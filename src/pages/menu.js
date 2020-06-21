@@ -8,15 +8,16 @@ const IndexPage = () => {
   const inactive = "text-gray-500 hover:text-gray-800"
   let lang
   if (typeof window !== `undefined`) {
-    lang = window.location.hash || "#es"
+    lang = window.location.hash
   }
-  if (lang) lang = lang.substring(1)
+  if (!["#es", "#en", "#take"].includes(lang)) lang = "#es"
+  lang = lang.substring(1)
   return (
     <Layout>
       <ul className="flex border-b flex-wrap">
         <li className={`${lang === "es" ? "-mb-px" : ""} mr-1`}>
           <a
-            class={`${commonStyle} ${lang === "es" ? active : inactive}`}
+            className={`${commonStyle} ${lang === "es" ? active : inactive}`}
             href="#es"
           >
             Español
