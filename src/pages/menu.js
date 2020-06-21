@@ -13,7 +13,7 @@ const IndexPage = () => {
   if (lang) lang = lang.substring(1)
   return (
     <Layout>
-      <ul className="flex border-b">
+      <ul className="flex border-b flex-wrap">
         <li className={`${lang === "es" ? "-mb-px" : ""} mr-1`}>
           <a
             class={`${commonStyle} ${lang === "es" ? active : inactive}`}
