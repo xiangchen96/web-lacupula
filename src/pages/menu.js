@@ -10,7 +10,7 @@ const IndexPage = () => {
   if (typeof window !== `undefined`) {
     lang = window.location.hash
   }
-  if (!["#es", "#en", "#take"].includes(lang)) lang = "#es"
+  if (!["#es", "#en", "#de", "#take"].includes(lang)) lang = "#es"
   lang = lang.substring(1)
   return (
     <Layout>
