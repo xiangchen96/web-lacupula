@@ -53,13 +53,13 @@ const IndexPage = () => {
             alt=""
             key={k}
             className="xl:w-2/3"
-            src={`menu-${lang}-${k}.jpg`}
+            src={`/menu-${lang}-${k}.jpg`}
           />
         ))}
 
-        {lang !== "take" && <img alt="" src="allergens.jpg" />}
+        {lang !== "take" && <img alt="" src="/allergens.jpg" />}
         {lang === "take" &&
-          [1, 2].map(k => <img alt="" key={k} src={`menu-${k}.jpg`} />)}
+          [1, 2].map(k => <img alt="" key={k} src={`/menu-${k}.jpg`} />)}
       </div>
     </Layout>
   )
