@@ -10,7 +10,7 @@ const IndexPage = () => {
   if (typeof window !== `undefined`) {
     lang = window.location.hash
   }
-  if (!["#es", "#en", "#de", "#take"].includes(lang)) lang = "#es"
+  if (!["#es", "#en", "#de", "#take", "#dim"].includes(lang)) lang = "#es"
   lang = lang.substring(1)
   return (
     <Layout>
@@ -39,6 +39,14 @@ const IndexPage = () => {
             Deutsch
           </a>
         </li>
+        <li className={`${lang === "dim" ? "-mb-px" : ""} mr-1`}>
+          <a
+            className={`${commonStyle} ${lang === "dim" ? active : inactive}`}
+            href="#dim"
+          >
+            Dim sum
+          </a>
+        </li>
         <li className={`${lang === "take" ? "-mb-px" : ""} mr-1`}>
           <a
             className={`${commonStyle} ${lang === "take" ? active : inactive}`}
@@ -58,12 +66,21 @@ const IndexPage = () => {
           />
         ))}
 
-      {lang !== "take" && (
+      {["es", "en", "de"].includes(lang) && (
         <img className="mx-auto" alt="" src="/allergens.jpg" />
       )}
       {lang === "take" &&
         [1, 2].map(k => (
           <img alt="" className="mx-auto" key={k} src={`/menu-${k}.jpg`} />
+        ))}
+      {lang === "dim" &&
+        [1, 2, 3, 4].map(k => (
+          <img
+            alt=""
+            className="xl:w-2/3 mx-auto"
+            key={k}
+            src={`/dim-${k}.jpg`}
+          />
         ))}
     </Layout>
   )

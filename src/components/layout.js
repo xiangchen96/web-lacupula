@@ -18,10 +18,16 @@ const Layout = ({ children }) => {
             Restaurante Hong Kong
           </Link>
           <div className="flex-col flex sm:flex-row sm:w-64 justify-between flex-wrap">
-            <Link className="font-light text-xl" to="/menu">
+            <Link
+              className="font-light text-xl hover:text-yellow-600"
+              to="/menu"
+            >
               Menu
             </Link>
-            <a className="font-light text-xl" href="tel:618085634">
+            <a
+              className="font-light text-xl hover:text-yellow-600"
+              href="tel:618085634"
+            >
               Tel: 618 08 56 34
             </a>
           </div>
