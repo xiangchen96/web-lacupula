@@ -67,6 +67,14 @@ const IndexPage = () => {
           </a>
         </li>
       </ul>
+      {["es", "en", "de"].includes(lang) && (
+        <img
+          className="mx-auto"
+          className="xl:w-2/3 mx-auto"
+          alt=""
+          src="/drinks.jpg"
+        />
+      )}
       {lang !== "take" &&
         [1, 2, 3, 4].map(k => (
           <img
