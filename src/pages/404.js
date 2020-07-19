@@ -1,11 +1,9 @@
-import React from "react"
+import { useEffect } from "react"
+import { navigate } from "gatsby"
 
-import Layout from "../components/layout"
-
-const NotFoundPage = () => (
-  <Layout>
-    <h1>PAGE NOT FOUND</h1>
-  </Layout>
-)
-
-export default NotFoundPage
+export default () => {
+  useEffect(() => {
+    navigate("/")
+  }, [])
+  return null
+}
