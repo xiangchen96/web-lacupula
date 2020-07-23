@@ -1,6 +1,7 @@
 import React from "react"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const IndexPage = () => {
   const commonStyle = "bg-white inline-block py-2 px-4 font-semibold"
@@ -14,6 +15,7 @@ const IndexPage = () => {
   lang = lang.substring(1)
   return (
     <Layout>
+      <SEO title="Home" />
       <ul className="flex border-b flex-wrap">
         <li className={`${lang === "es" ? "-mb-px" : ""} mr-1`}>
           <a
