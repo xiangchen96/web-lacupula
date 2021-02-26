@@ -28,7 +28,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build-win": "gatsby build && rmdir /s /q .\\docs\\ && ren public docs",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
