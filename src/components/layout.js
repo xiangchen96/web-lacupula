@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
       <div className="mx-10 sm:mx-20 md:mx-30 lg:mx-40 py-5 max-w-full">
         <div className="sm:flex items-center flex-wrap">
           <Link className="font-bold text-3xl flex-grow" to="/">
-            Restaurante Hong Kong
+            Restaurante Hong&nbsp;Kong
           </Link>
           <div className="flex sm:flex-row sm:w-64 flex-wrap text-center">
             <a
