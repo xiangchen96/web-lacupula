@@ -1,19 +1,25 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+const commonStyle = "bg-white inline-block py-2 px-4 font-semibold"
+const active = "border-l border-t border-r rounded-t text-gray-700"
+const inactive = "text-gray-500 hover:text-gray-800"
+
 const IndexPage = () => {
-  const commonStyle = "bg-white inline-block py-2 px-4 font-semibold"
-  const active = "border-l border-t border-r rounded-t text-gray-700"
-  const inactive = "text-gray-500 hover:text-gray-800"
-  let lang
-  if (typeof window !== `undefined`) {
-    lang = window.location.hash
-  }
-  if (!["#es", "#en", "#de", "#dim", "#dessert", "#wines"].includes(lang))
-    lang = "#es"
-  lang = lang.substring(1)
+  const [lang, setLang] = useState("")
+
+  useEffect(() => {
+    let hash
+    if (typeof window !== "undefined") {
+      hash = window.location.hash
+    }
+    if (!["#es", "#en", "#de", "#dim", "#dessert", "#wines"].includes(hash))
+      hash = "#es"
+    setLang(hash.substring(1))
+  }, [])
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -22,6 +28,7 @@ const IndexPage = () => {
           <a
             className={`${commonStyle} ${lang === "es" ? active : inactive}`}
             href="#es"
+            onClick={() => setLang("es")}
           >
             Español
           </a>
@@ -30,6 +37,7 @@ const IndexPage = () => {
           <a
             className={`${commonStyle} ${lang === "en" ? active : inactive}`}
             href="#en"
+            onClick={() => setLang("en")}
           >
             English
           </a>
@@ -38,6 +46,7 @@ const IndexPage = () => {
           <a
             className={`${commonStyle} ${lang === "de" ? active : inactive}`}
             href="#de"
+            onClick={() => setLang("de")}
           >
             Deutsch
           </a>
@@ -46,6 +55,7 @@ const IndexPage = () => {
           <a
             className={`${commonStyle} ${lang === "dim" ? active : inactive}`}
             href="#dim"
+            onClick={() => setLang("dim")}
           >
             Dim sum
           </a>
@@ -54,6 +64,7 @@ const IndexPage = () => {
           <a
             className={`${commonStyle} ${lang === "wines" ? active : inactive}`}
             href="#wines"
+            onClick={() => setLang("wines")}
           >
             Wines/Vinos
           </a>
@@ -64,18 +75,14 @@ const IndexPage = () => {
               lang === "dessert" ? active : inactive
             }`}
             href="#dessert"
+            onClick={() => setLang("dessert")}
           >
             Desserts
           </a>
         </li>
       </ul>
       {["es", "en", "de"].includes(lang) && (
-        <img
-          className="mx-auto"
-          className="xl:w-2/3 mx-auto"
-          alt=""
-          src="/drinks.jpg"
-        />
+        <img className="xl:w-2/3 mx-auto" alt="" src="/drinks.jpg" />
       )}
       {[1, 2, 3, 4].map(k => (
         <img
@@ -110,6 +117,38 @@ const IndexPage = () => {
             src={`/dessert-${k}.jpg`}
           />
         ))}
+      <div
+        class="mapouter"
+        style={{
+          position: "relative",
+          textAlign: "right",
+          margin: "auto",
+          height: 500,
+          width: "90%",
+          maxWidth: 600,
+        }}
+      >
+        <div
+          class="gmap_canvas"
+          style={{
+            overflow: "hidden",
+            background: "none",
+            height: "100%",
+            width: "100%",
+          }}
+        >
+          <iframe
+            width="100%"
+            height="100%"
+            id="gmap_canvas"
+            src="https://maps.google.com/maps?q=hong%20kong%20caleta&t=&z=17&ie=UTF8&iwloc=&output=embed"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+          ></iframe>
+        </div>
+      </div>
     </Layout>
   )
 }
