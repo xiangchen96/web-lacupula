@@ -95,7 +95,7 @@ const IndexPage = () => {
             alt=""
             className="xl:w-2/3 mx-auto"
             key={k}
-            src={`/dim-${k}.jpg`}
+            src={`/dim-${k}.jpeg`}
           />
         ))}
       {lang === "wines" && (
