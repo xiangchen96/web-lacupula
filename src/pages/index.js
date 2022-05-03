@@ -80,6 +80,15 @@ const IndexPage = () => {
             Desserts
           </a>
         </li>
+        <li className={`${lang === "take" ? "-mb-px" : ""} mr-1`}>
+          <a
+            className={`${commonStyle} ${lang === "take" ? active : inactive}`}
+            href="#take"
+            onClick={() => setLang("take")}
+          >
+            Take Away
+          </a>
+        </li>
       </ul>
       {["es", "en", "de"].includes(lang) && (
         <img className="xl:w-2/3 mx-auto" alt="" src="/drinks.jpg" />
@@ -115,6 +124,15 @@ const IndexPage = () => {
             className="xl:w-2/3 mx-auto"
             key={k}
             src={`/dessert-${k}.jpg`}
+          />
+        ))}
+      {lang === "take" &&
+        [1, 2].map(k => (
+          <img
+            alt=""
+            className="xl:w-2/3 mx-auto"
+            key={k}
+            src={`/menu-${k}.jpg`}
           />
         ))}
       <div
