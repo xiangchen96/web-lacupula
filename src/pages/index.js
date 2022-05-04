@@ -90,51 +90,99 @@ const IndexPage = () => {
           </a>
         </li>
       </ul>
-      {["es", "en", "de"].includes(lang) && (
-        <img className="xl:w-2/3 mx-auto" alt="" src="/drinks.jpg" />
-      )}
+      <img
+        className="xl:w-2/3 mx-auto"
+        alt=""
+        src="/drinks.jpg"
+        style={{
+          display: ["es", "en", "de"].includes(lang) ? "block" : "none",
+        }}
+      />
       {[1, 2, 3, 4].map(k => (
         <img
           alt=""
           key={k}
           className="xl:w-2/3 mx-auto"
-          src={`/menu-${lang}-${k}.jpg`}
+          src={`/menu-es-${k}.jpg`}
+          style={{
+            display: lang === "es" ? "block" : "none",
+          }}
         />
       ))}
 
-      {["es", "en", "de"].includes(lang) && (
-        <img className="mx-auto" alt="" src="/allergens.jpg" />
-      )}
-      {lang === "dim" &&
-        [1, 2, 3, 4].map(k => (
-          <img
-            alt=""
-            className="xl:w-2/3 mx-auto"
-            key={k}
-            src={`/dim-${k}.jpeg`}
-          />
-        ))}
-      {lang === "wines" && (
-        <img alt="" className="xl:w-2/3 mx-auto" src={`/wines.jpg`} />
-      )}
-      {lang === "dessert" &&
-        [1, 2, 3, 4, 5].map(k => (
-          <img
-            alt=""
-            className="xl:w-2/3 mx-auto"
-            key={k}
-            src={`/dessert-${k}.jpg`}
-          />
-        ))}
-      {lang === "take" &&
-        [1, 2].map(k => (
-          <img
-            alt=""
-            className="xl:w-2/3 mx-auto"
-            key={k}
-            src={`/menu-${k}.jpg`}
-          />
-        ))}
+      {[1, 2, 3, 4].map(k => (
+        <img
+          alt=""
+          key={k}
+          className="xl:w-2/3 mx-auto"
+          src={`/menu-en-${k}.jpg`}
+          style={{
+            display: lang === "en" ? "block" : "none",
+          }}
+        />
+      ))}
+
+      {[1, 2, 3, 4].map(k => (
+        <img
+          alt=""
+          key={k}
+          className="xl:w-2/3 mx-auto"
+          src={`/menu-de-${k}.jpg`}
+          style={{
+            display: lang === "de" ? "block" : "none",
+          }}
+        />
+      ))}
+
+      <img
+        className="mx-auto"
+        alt=""
+        src="/allergens.jpg"
+        style={{
+          display: ["es", "en", "de"].includes(lang) ? "block" : "none",
+        }}
+      />
+      {[1, 2, 3, 4].map(k => (
+        <img
+          alt=""
+          className="xl:w-2/3 mx-auto"
+          key={k}
+          src={`/dim-${k}.jpeg`}
+          style={{
+            display: lang === "dim" ? "block" : "none",
+          }}
+        />
+      ))}
+      <img
+        alt=""
+        className="xl:w-2/3 mx-auto"
+        src={`/wines.jpg`}
+        style={{
+          display: lang === "wines" ? "block" : "none",
+        }}
+      />
+      {[1, 2, 3, 4, 5].map(k => (
+        <img
+          alt=""
+          className="xl:w-2/3 mx-auto"
+          key={k}
+          src={`/dessert-${k}.jpg`}
+          style={{
+            display: lang === "dessert" ? "block" : "none",
+          }}
+        />
+      ))}
+      {[1, 2].map(k => (
+        <img
+          alt=""
+          className="xl:w-2/3 mx-auto"
+          key={k}
+          src={`/menu-${k}.jpg`}
+          style={{
+            display: lang === "take" ? "block" : "none",
+          }}
+        />
+      ))}
       <div
         class="mapouter"
         style={{
